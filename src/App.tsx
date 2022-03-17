@@ -1,8 +1,13 @@
+import styled from 'styled-components';
+
+const Title = styled.h1`
+  color: #8257e6;
+`
 
 export function App() {
   return (
     <div className="App">
-      <h1>Hellow Worlds</h1>
+      <Title>Hellow Worlds</Title>
     </div>
   );
 }

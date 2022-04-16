@@ -11,7 +11,7 @@ export function Summary() {
                     <h4>Entradas</h4>
                     <img src={incomeImg} alt="Icone que representa as entradas."></img>
                 </header>
-                <strong>R$1000,00</strong>
+                <strong>R$1.000,00</strong>
             </div>
             <div>
                 <header>

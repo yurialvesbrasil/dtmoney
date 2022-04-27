@@ -4,6 +4,7 @@ import CloseImg from '../../assets/close.svg';
 import IncomeImg from '../../assets/income.svg';
 import OutcomeImg from '../../assets/outcome.svg';
 import { FormEvent, useState } from 'react';
+import { api } from '../../services/api';
 
 interface NewTransactionModalProps {
     isNewTransactionModalOpen: boolean;
@@ -21,6 +22,16 @@ export function NewTransactionModal({ isNewTransactionModalOpen, onCloseNewTrans
 
     function handleCreateNewTransaction(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
+
+        const data = {
+            title,
+            value,
+            category,
+            typeTransaction,
+        }
+
+        api.post('transactions', data);
+
         onCloseNewTransactionModal();
     }
 
@@ -67,7 +78,11 @@ export function NewTransactionModal({ isNewTransactionModalOpen, onCloseNewTrans
                         <span>Saída</span>
                     </RadioBox>
                 </TransactionTypeContainer>
-                <input placeholder='Categoria' />
+                <input
+                    placeholder='Categoria'
+                    value={category}
+                    onChange={(event) => setCategory(event.target.value)}
+                />
                 <button type="submit">Cadastrar</button>
             </NewTransactionModalContainer>
         </Modal>

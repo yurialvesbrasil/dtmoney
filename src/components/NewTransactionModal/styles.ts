@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
-import border from '../../../node_modules/polished/lib/shorthands/border.d';
-import transitions from '../../../node_modules/polished/lib/shorthands/transitions.d';
-import borderWidth from '../../../node_modules/polished/lib/shorthands/borderWidth.d';
-import size from '../../../node_modules/polished/lib/shorthands/size.d';
+
 
 
 export const NewTransactionModalContainer = styled.form`
@@ -57,28 +54,35 @@ export const TransactionTypeContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.5rem;
+`;
 
-    button {
-        height: 4rem;
-        border: 1px solid var(--input-border);
-        border-radius: 0.25rem;
-        background: transparent;
-        display: flex;
-        align-items: center;
-        justify-content: start;
-        padding: 0 1.5rem;
-        gap: 1rem;
+interface RadioBoxProps {
+    isActive: boolean;
+    activeColor: string;
+}
 
-        transition: border-color 0.2s;
+export const RadioBox = styled.button<RadioBoxProps>`
+    height: 4rem;
+    border: 1px solid var(--input-border);
+    border-radius: 0.25rem;
 
-        &:hover {
-            border-color: ${darken(0.2, '#d7d7d7')}
-     
-        }    
+    background: ${(props) => props.isActive ? props.activeColor : 'transparent'};
+    
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 0 1.5rem;
+    gap: 1rem;
 
-        img{
-            width: 1.5rem;
-            height: 1.5rem;
-        }
+    transition: border-color 0.2s;
+
+    &:hover {
+        border-color: ${darken(0.2, '#d7d7d7')}
+    
+    }    
+
+    img{
+        width: 1.5rem;
+        height: 1.5rem;
     }
 `;

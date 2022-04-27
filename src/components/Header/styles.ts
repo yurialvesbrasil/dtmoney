@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Header } from './index';
 
 export const HeaderStyled = styled.header`
     background: var(--blue);

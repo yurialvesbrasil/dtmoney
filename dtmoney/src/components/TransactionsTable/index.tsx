@@ -1,11 +1,10 @@
-import { useContext } from 'react';
 import { TransactionsTableStyled } from "./styles";
-import { TransactionsContext } from '../../TransactionsContext';
+import { useTransactions } from '../../hooks/useTransaction';
 
 export function TransactionsTable() {
 
-    //Recupar dados do Context
-    const { transactions } = useContext(TransactionsContext)
+    //Recupar dados do Context usando hooks
+    const { transactions } = useTransactions();
 
     return (
         <TransactionsTableStyled>

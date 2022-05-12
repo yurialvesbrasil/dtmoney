@@ -1,7 +1,6 @@
-import { FormEvent, useContext, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import Modal from 'react-modal';
-import { api } from '../../services/api';
-import { TransactionsContext } from '../../TransactionsContext';
+import { useTransactions } from '../../hooks/useTransaction';
 
 import CloseImg from '../../assets/close.svg';
 import IncomeImg from '../../assets/income.svg';
@@ -17,7 +16,7 @@ interface NewTransactionModalProps {
 
 export function NewTransactionModal({ isNewTransactionModalOpen, onCloseNewTransactionModal }: NewTransactionModalProps) {
 
-    const { createTransaction } = useContext(TransactionsContext);
+    const { createTransaction } = useTransactions();
 
     const [typeTransaction, setTypeTransaction] = useState<'withdraw' | 'deposit'>('deposit');
     //Dados do formulário
